@@ -31,7 +31,9 @@ public class CustomInfoWindow implements GoogleMap.InfoWindowAdapter{
         TextView phyDens = view.findViewById(R.id.physInfo);
         TextView bedDens = view.findViewById(R.id.bedInfo);
         countryName.setText(marker.getTitle());
-        String[] info = marker.getSnippet().split("-");
+        if (marker.getSnippet() != null);
+            String[] info = marker.getSnippet().split("-");
+    
         for (int i = 0; i < info.length; i++) {
             switch (i) {
                 case 0:

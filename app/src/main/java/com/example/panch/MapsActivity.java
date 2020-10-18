@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -88,7 +89,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 String country = (String) keys[i];
                 ArrayList<String> information = (ArrayList<String>) data.get(country);
                 String info = "";
-                System.out.println((String) keys[i]);
                 Geocoder geocoder = new Geocoder(this);
                 List<Address> listOfAddresses = geocoder.getFromLocationName(country, 1);
 
@@ -107,11 +107,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mMap.addMarker(options);
                 }
 
-
             }
+
         } catch(IOException e){
             e.printStackTrace();
         }
+
+        Log.d("DONE POPULATING","inside MapsActivity");
     }
 
 }
