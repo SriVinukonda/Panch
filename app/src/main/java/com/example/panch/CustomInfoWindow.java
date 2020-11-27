@@ -24,7 +24,7 @@ public class CustomInfoWindow implements GoogleMap.InfoWindowAdapter{
     @Override
     public View getInfoContents(Marker marker) {
         View view = ((Activity)context).getLayoutInflater()
-                .inflate(R.layout.info_window,null);
+                .inflate(R.layout.info_window_safe,null);
 
         TextView countryName = view.findViewById(R.id.countryName);
         TextView weatherInfo = view.findViewById(R.id.weatherInfo);
