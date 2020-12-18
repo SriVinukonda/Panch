@@ -90,6 +90,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
+                                document.getData();
+//                                continue;
                                 populateMap(document.getData());
                             }
                         }
@@ -110,6 +112,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 ArrayList<String> information = (ArrayList<String>) data.get(country);
                 String info = "";
                 Geocoder geocoder = new Geocoder(this);
+//                System.out.println(geocoder.getFromLocationName("Earth",178));
                 List<Address> listOfAddresses = geocoder.getFromLocationName(country, 1);
 
                 for(int j =0; j < information.size(); j++) {
@@ -130,7 +133,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
 
-        } catch(IOException e){
+        } catch(Exception e){
             e.printStackTrace();
         }
 
